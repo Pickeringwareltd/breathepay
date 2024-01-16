@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'thiccregular';
+    src: url('/fonts/crustopia/THICCCBOI-Regular.woff2') format('woff2'),
+        url('/fonts/crustopia/THICCCBOI-Regular.woff') format('woff'),
+        url('/fonts/crustopia/THICCCBOI-Regular.ttf') format('truetype'),
+        url('/fonts/crustopia/THICCCBOI-Regular.svg#THICCCBOI-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'thiccbold';
+    src: url('/fonts/crustopia/THICCCBOI-Bold.woff2') format('woff2'),
+        url('/fonts/crustopia/THICCCBOI-Bold.woff') format('woff'),
+        url('/fonts/crustopia/THICCCBOI-Bold.ttf') format('truetype'),
+        url('/fonts/crustopia/THICCCBOI-Bold.svg#THICCCBOI-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+.thiccbold {
+  font-family: thiccbold, sans-serif;
+}
+
+.thiccregular {
+  font-family: thiccregular, sans-serif;
+}
+
+.flexcenter {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;             /* Standard syntax */
+
+  -webkit-box-pack: center;  /* OLD - iOS 6-, Safari 3.1-6 */
+  -ms-flex-pack: center;     /* TWEENER - IE 10 */
+  -webkit-justify-content: center; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  justify-content: center;   /* Standard syntax */
+
+  -webkit-box-align: center; /* OLD - iOS 6-, Safari 3.1-6 */
+  -ms-flex-align: center;    /* TWEENER - IE 10 */
+  -webkit-align-items: center; /* NEW - Safari 7.0+ and Chrome */
+  align-items: center;       /* Standard syntax */
+}
+
+iframe {
+  max-height: none;
+}
+
+#iframeBackground {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+#threeDSContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#threeDSIframe {
+  max-height: 90%;
+  height: 90%;
+  width: 90%;
+  bottom: 5%;
+  left: 5%;
+  z-index: 10;
+  max-width: 480px;
+}
+
+.checkoutButton {
+  height: 48px;
+  min-width: 164px;
+}
+
+.navbarMargin {
+  padding-top: 68px;
+}
+
+@media screen and (min-width: 1024px) {
+  .navbarMargin {
+    padding-top: 136px;
+  }
+}
+
+.button-loading-icon {
+    display: inline-block;
+    margin: 0 8px;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    border: .215em solid transparent;
+    vertical-align: middle;
+    font-size: 16px;
+    border-top-color: white;
+    animation: spin 1s cubic-bezier(.55, .15, .45, .85) infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

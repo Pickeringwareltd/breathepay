@@ -1,0 +1,33 @@
+iframe {
+  max-height: 42px;
+}
+
+.hostedfield-wrapper {
+  width: 100%;
+  padding: 4px 16px;
+  border-radius: 4px;
+  background-color: var(--input-background-colour);
+  border: none;
+
+  box-shadow: var(--input-box-shadow);
+  -webkit-box-shadow: var(--input-box-shadow);
+  -moz-box-shadow: var(--input-box-shadow);
+
+  font: 600 16px Helvetica, sans-serif;
+}
+
+.cardDetails {
+  font: 600 16px Helvetica, sans-serif !important;
+}
+
+#cardDetails-hostedfield {
+  font: 600 16px Helvetica, sans-serif !important;
+}
+
+.hf-invalid {
+  border: 1px solid red;
+}
+
+.hostedform {
+  background-color: black;
+}
