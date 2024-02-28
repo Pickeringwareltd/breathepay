@@ -13,6 +13,7 @@ class BreathepayCharge extends Model
 
     protected $fillable = [
         'transaction_id',
+        'xref',
         'amount',
         'country_code',
         'currency_code',
@@ -20,7 +21,8 @@ class BreathepayCharge extends Model
         'successful',
         'captured',
         'reason_for_failure',
-        'payment_token'
+        'payment_token',
+        'completed_at'
     ];
 
     /*
@@ -44,25 +46,12 @@ class BreathepayCharge extends Model
       return Format::currencyAsNumber($this->amount);
     }
 
-    public function refund() {
-      $client = new BreathepayClient();
-      $response = $client->sendRefundRequest(
-        config('breathepay.gateway_3ds'),
-        config('breathepay.gateway_secret'),
-        $this
-      );
-      if($response['success']) {
-        $this->status = 'refunded';
-        $this->save();
-      }
-      return $response;
-    }
-
     public function handleSuccessfulTransaction() {
       //Log it into elastic
       $this->successful = 1;
       $this->captured = 1;
       $this->status = 'succeeded';
+      $this->completed_at = now();
       $this->save();
     }
 

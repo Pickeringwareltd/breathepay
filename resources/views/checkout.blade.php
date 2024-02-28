@@ -82,6 +82,10 @@
 
           <div id="successContainer" class="w-full p-4 border border-2 border-green-600 hidden">
             <p id="successMessage" class="text-green-600 text-center text-sm text-bold font-ydr uppercase font-bold">Payment successful! Redirecting...</p>
+
+            <div class="mt-4 flex flex justify-center items-center lg:items-start border-t border-gray-200 pt-6 w-full md:w-auto">
+              <a href="/refund?payment={{ $payment->id }}" class="checkoutButton min-w-sm w-full rounded-none border border-transparent bg-black px-4 py-2 text-sm font-medium text-white shadow-sm focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-black focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-black flex items-center justify-center">Refund Payment</a>
+            </div>
           </div>
 
           <form id="paymentForm" action="/pay?payment={{ $payment->id }}" method="post" class="hidden">
@@ -117,6 +121,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://gateway.breathepay.co.uk/sdk/web/v1/js/hostedfields.min.js"></script>
-  <script src="{{ mix('/js/checkout.js') }}" order="{{ isset($payment) ? $payment->id : '' }}" result="{{ isset($result) ? json_encode($result) : '' }}" csrf="{{ csrf_token() }}"></script>
+  <script src="{{ mix('/js/checkout.js') }}" order="{{ isset($payment) ? $payment->id : '' }}" merchantId="{{ config('breathepay.gateway_3ds') }}" result="{{ isset($result) ? json_encode($result) : '' }}" csrf="{{ csrf_token() }}"></script>
 </body>
 </html>

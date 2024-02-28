@@ -13,6 +13,7 @@ var script = document.currentScript;
 var result;
 var order;
 var csrf;
+var merchantId;
 
 window.onerror = function (msg, url, lineNo, columnNo, error) {
             sendLog({
@@ -26,6 +27,7 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
 document.addEventListener('DOMContentLoaded', function() {
     result = script.getAttribute('result');
     order = script.getAttribute('order');
+    merchantId = script.getAttribute('merchantId');
     csrf = script.getAttribute('csrf');
 
     if(result) {
@@ -94,7 +96,7 @@ function setupCardForm() {
           }
         },
         "classes":{"invalid":"error"},
-        "merchantID": '113812'
+        "merchantID": merchantId
     });
     submit.addEventListener('click', getCardDetails);
   }
@@ -271,7 +273,7 @@ function showSuccess() {
     }, 3000);
   } else {
     var successMessage = document.getElementById('successMessage');
-    successMessage.innerHTML = result.message;
+    successMessage.innerHTML = 'Transaction successful!';
   }
 }
 

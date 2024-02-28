@@ -24,3 +24,5 @@ Route::post('/pay/create', [IndexController::class, 'create']);
 Route::post('/gateway/payment', [GatewayController::class, 'transactionCallback']);
 Route::post('/gateway/3ds', [GatewayController::class, 'threeDSSecure']);
 Route::post('/gateway/iframe', [GatewayController::class, 'threeDSIframe']);
+
+Route::get('/refund', [GatewayController::class, 'refund']);
