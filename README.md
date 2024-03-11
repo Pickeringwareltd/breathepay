@@ -1,11 +1,19 @@
-## Things to note
+## Installation
 
-There are 2 config variables with IDs for 3DS and none 3DS accounts to test both flows
+You must have PHP8.1 installed on your machine
 
-When installing the package, we must ensure:
+Pull the repository down
 
-- The correct routes are added (could be optional to make it more flexible)
-- The routes are then added to the VerifyCsrfToken middleware
-- The breathepay charges table is added to the database
-- The relevant merchant ID and secret is loaded in when making payments (I'd avoid adding this to config like I have as SaaS will have a merchant ID + Secret per business)
-- Then they will need to add the JS package to the frontend (ideally we can make our own NPM one which pulls in their package)
+Run composer install
+Run npm install
+run cp .env.example .env
+
+Add your database details to the .env file
+Add the BreathePay merchant ID and Secret (check Breathepay Documentation) to the env file:
+BREATHEPAY_ID=
+BREATHEPAY_3DS_ID=
+BREATHEPAY_SECRET=
+
+Run php artisan migrate
+
+Visit the homepage of the application and make a payment using the test cards (check BreathePay Documentation)
